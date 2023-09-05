@@ -2,15 +2,17 @@
 
 namespace MoveZeroes
 {
+    //https://leetcode.com/problems/move-zeroes/
     internal class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
             int[] num = { 0, 1, 0, 3, 12 };
-            Console.WriteLine(MoveZeroes(num));
+            MoveZeroes(num);
+            Console.WriteLine(string.Join(", ", num));
         }
 
-        public static int[] MoveZeroes(int[] nums)
+        public static void MoveZeroes(int[] nums)
         {
             for (int i = 0; i < nums.Length; i++)
             {
@@ -23,7 +25,6 @@ namespace MoveZeroes
                     nums[nums.Length - 1] = 0;
                 }
             }
-            return nums;
         }
     }
 }
