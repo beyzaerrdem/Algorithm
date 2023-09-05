@@ -16,27 +16,21 @@ namespace IsSubsequence
             char[] sList = s.ToCharArray();
             char[] tList = t.ToCharArray();
 
-            List<char> ind = new List<char>();
+            int ind = -1;
+            int count = 0;
             for (int i = 0; i < sList.Length; i++)
             {
-                for (int j = 0; j < tList.Length; j++)
+                for (int j = ind + 1; j < tList.Length; j++)
                 {
                     if (sList[i] == tList[j])
                     {
-                        ind.Add(tList[j]);
+                        count++;
+                        ind = j;
+                        break;
                     }
                 }
             }
-
-            if (ind.Count != sList.Length)
-            {
-                return false;
-            }
-
-            // dizi ve listenin karşılaştırılması
-            bool isSortedIndEqualOriginalInd = ind.SequenceEqual(sList);
-
-            return isSortedIndEqualOriginalInd;
+            return count == sList.Length;
         }
     }
 }
