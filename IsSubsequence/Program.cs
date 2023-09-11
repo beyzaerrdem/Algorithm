@@ -4,6 +4,8 @@ using System.Linq;
 
 namespace IsSubsequence
 {
+    //leetcode linki: https://leetcode.com/problems/is-subsequence/
+
     internal class Program
     {
         static void Main(string[] args)
