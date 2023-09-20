@@ -10,27 +10,47 @@ namespace IsSubsequence
     {
         static void Main(string[] args)
         {
-            int[] dizi = { -1, 10, 6, 7, -7, 1 };
-            Console.WriteLine(FindMaxK(dizi));
+            //int[] dizi = { -1, 10, 6, 7, -7, 1 };
+            int[] dizi = { 8, 1, 2, 2, 3 };
+            Console.WriteLine(SmallerNumbersThanCurrent(dizi));
         }
 
-        public static int FindMaxK(int[] nums)
+        public static int[] SmallerNumbersThanCurrent(int[] nums)
         {
-            Array.Sort(nums);
-            int deger = 0;
+            List<int> l = new List<int>();
+            int count = 0;
             for (int i = 0; i < nums.Length; i++)
-            {
-                if (nums[i] < 0)
+            {          
+                for (int j = i+1; j < nums.Length; j++)
                 {
-                    deger = nums[i] - (nums[i] * 2);
-                    if (nums.Contains(deger))
+                    if (nums[i] > nums[j])
                     {
-                        return deger;
+                        count++;
                     }
                 }
+                l.Add(count);
+                count = 0;
             }
-            return -1;
+            return l.ToArray();
         }
+
+        //    public static int FindMaxK(int[] nums)
+        //    {
+        //        Array.Sort(nums);
+        //        for (int i = 0; i < nums.Length; i++)
+        //        {
+        //            if (nums[i] < 0)
+        //            {
+        //                if (nums.Contains(-(nums[i])))
+        //                {
+        //                    return -nums[i];
+        //                }
+        //            }
+        //        }
+        //        return -1;
+        //    }
+        //}
+
     }
-}
+    }
 
