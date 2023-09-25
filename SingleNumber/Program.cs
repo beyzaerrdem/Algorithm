@@ -21,12 +21,8 @@ namespace SingleNumber
                     if (l[i] == l[j])
                     {
                         l.RemoveAll(x => x == l[i]);
-                        Console.WriteLine(l);
-                        Console.WriteLine(i);
-                        if (l.Contains(l[i]))
-                        {
-                            l.Remove(l[i]);
-                        }
+                        i = 0;
+                        break;
                     }
                     Console.WriteLine(l);
                 }            
